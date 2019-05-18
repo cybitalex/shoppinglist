@@ -1,6 +1,5 @@
-import os
-import sys
-from shopping_items import Fruits
+import os, sys
+# from shopping_items import Fruits
 
 
 def display_help():
@@ -92,11 +91,12 @@ def shopping_list():
             continue
         print('You have added {} to your list\n'.format(shop))
         cost = float(input('Price of {}: '.format(shop)))
-        item_dict[shop] = cost
+        quantity = int(input("How many would you like to add? "))
+        item_dict[shop] = cost * quantity
         cart = sum(item_dict.values())
         print('You entered {} as the price of {}\n'.format(cost, shop))
         print('You now have {} items in your list.\n'.format(len(item_dict)))
-        print('The total currently on your cart is {}'.format(cart))
+        print('The total currently on your cart is {:.2f}'.format(cart))
         add_more_items = input('Would you like to add more items?(Y/N) ')
         if add_more_items == 'Y'.lower():
             pass
